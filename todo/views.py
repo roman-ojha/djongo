@@ -13,7 +13,10 @@ def todo(request):
         return redirect('/')
 
     if request.GET.get('id'):
-        # toggle completed according by getti
+        # toggle completed according by getting id of that specify todo
+        todo = Todo.objects.get(id=request.GET.get('id'))
+        todo.is_completed = not todo.is_completed
+        todo.save()
 
         # get all the todo data form the data base and send context while rendering html element
     context = {'todos': Todo.objects.all()}

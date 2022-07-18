@@ -47,21 +47,22 @@
       <div id="todo-item-list">
         <ol type="1">
           {% for todo in todos %}
+          {% if todo.is_completed %}
+          <li class="todo-item">
+            <a href="?id={{ todo.id }}" style="text-decoration: line-through;">
+                {{todo.todo}}
+            </a>
+          </li>
+          {% else %}
           <li class="todo-item">
             <a href="?id={{ todo.id }}">
                 {{todo.todo}}
             </a>
           </li>
+          {% endif %}
           {% endfor %}
         </olu>
       </div>
     </div>
-    <!-- <script>
-            const addTodoInputElement = document.querySelector("#add-todo");
-            function addTodo(e) {
-                e.preventDefault();
-                console.log(addTodoInputElement.value);
-            }
-    </script> -->
   </body>
 </html>
