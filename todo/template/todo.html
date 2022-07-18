@@ -4,10 +4,64 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="" rel="stylesheet" />
-    <title></title>
+    <title>Todo</title>
+    <style>
+      body {
+        background-color: rgb(71, 71, 71);
+        margin: 0px;
+        padding: 0px;
+      }
+      #container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        flex-direction: column;
+      }
+      #todo-item-list {
+        margin-top: 20px;
+      }
+      .todo-item {
+    }
+    .todo-item a{
+        color: white;
+        text-align: center;
+        display: block;
+        font-size: 20px;
+        text-decoration: none;
+      }
+      label {
+        color: white;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello</h1>
+    <div id="container">
+      <form method="POST" action="/">
+        {% csrf_token %}
+        <label for="add-todo">Add Todo</label>
+        <input id="add-todo" type="text" placeholder="Add todo" name="todo" />
+        <button type="submit">Add</button>
+      </form>
+      <div id="todo-item-list">
+        <ol type="1">
+          {% for todo in todos %}
+          <li class="todo-item">
+            <a href="?id={{ todo.id }}">
+                {{todo.todo}}
+            </a>
+          </li>
+          {% endfor %}
+        </olu>
+      </div>
+    </div>
+    <!-- <script>
+            const addTodoInputElement = document.querySelector("#add-todo");
+            function addTodo(e) {
+                e.preventDefault();
+                console.log(addTodoInputElement.value);
+            }
+    </script> -->
   </body>
 </html>

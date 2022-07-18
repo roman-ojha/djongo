@@ -46,14 +46,11 @@
                 },
             ]
 
-    Step 4: (update urls, add views, models):
+    Step 5: (update urls, add views, models):
         -> add models inside 'todo/models.py'
         -> update urls.py inside ./config/urls.py
         -> update urls.py inside ./todo/urls.py
         -> create views inside './todo/views.py'
         -> python manage.py makemigrations
         -> python manage.py migrate
-    
-
-
 """
