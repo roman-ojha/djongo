@@ -7,9 +7,10 @@
                 -> cd .\venv\Scripts
                 -> activate.bat (to activate virtual env using cmd)
         -> poetry init
-        -> poetry add djangorestframework
+        -> poetry add django
         -> poetry add autopep8 (package for auto formatting)
         -> poetry add djongo (mongodb for django)
+        -> poetry add pymongo==3.12.3
         -> poetry add dnspython
 
         *) to rename project folder as config:
@@ -24,11 +25,11 @@
                     'NAME': 'your-db-name',
                 }
             }
-        -> for using rest_framework:
-            INSTALLED_APPS = [
-                'rest_framework',
-
-            ]
+        -> python manage.py makemigrations
+        -> python manage.py migrate
+        
+    Step 3: (create user admin)
+        -> python manage.py createsuperuser
         
     Step 3: (create apps)
         -> python manage.py startapp cards
